@@ -1,5 +1,6 @@
 {
   "name": "worldcities",
+  "homepage": "https://obilo.io/worldcities",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

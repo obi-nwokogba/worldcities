@@ -5,13 +5,17 @@ import imagesArr from './imageData.js'
 export default function App() {
 
   let currentHeader = "Cities of the World";
-  const [bigPhoto, setBigPhoto] = useState(imagesArr[0]);
+  let [bigPhoto, setBigPhoto] = useState(imagesArr[0].img);
   let [cityName, setCityName] = useState(imagesArr[0].city);
 
   function handleClick(imageURL,imageCaption) {
     setBigPhoto(imageURL);
     setCityName(imageCaption);
   }
+
+  //handleClick(imagesArr[0].img,imagesArr[0].city);
+
+  //bigPhoto = imagesArr[0].img;
 
   return (
     <div className="App">
