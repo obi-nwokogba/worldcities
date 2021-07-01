@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './styles.css';
+import imagesArr from './imageData.js'
 
-function App() {
+export default function App() {
+
+  const [bigPhoto, setBigPhoto] = useState(imagesArr[0]);
+
+  // CREATE A HANDLE CLICK FUNCTION THAT ACCEPTS AN IMAGE URL
+  // THE FUNCTION SHOULD CALL setBigImage AND PASS IT THE URL
+  function handleClick(imageURL) {
+    setBigPhoto(imageURL);
+  }
+
+  // CREATE A VARIABLE CALLED images THAT LOOPs OVER THE imagesArr AND RETURNS AN <IMG> ELEMENT
+  // ASSIGN ALL OF THE PROPERTIES THAT IT NEEDS: src, alt, className, key
+  // ALSO ASSIGN AN onClick EVENT THAT CALL THE HANDLE EVENT AND PASSES IT THE IMG URL
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Cities Of The World</h1>
+      <div id="wrapper">
+
+        <img src={bigPhoto} id="bigimage" alt='bigImage' />
+
+        <div id="thumbnails">
+          {imagesArr.map((city, i) => (
+            <img src={city.img} className="thumb" key={i} onClick={() => handleClick(city.img)} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;
